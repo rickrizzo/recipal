@@ -1,1 +1,2 @@
-# recipal
+# Recipal
+Pandora/Spotify meet food!
