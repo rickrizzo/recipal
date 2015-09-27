@@ -1,25 +1,22 @@
 html, body, #content{
 	height: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.pictureShadow{
-  display:block !important; 
-  background-color:rgba(0,0,0,0.3); 
-  width:100%; 
-  height:100%; 
-  z-index:1; 
-  position:absolute; 
-  top:0; 
-  left:0;
-}
-
+/* Background Image */
 .home-wrapper{
-	background-image: url("images/veggies.jpg");
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/veggies.jpg");
 	height: 100%;
 	vertical-align: middle;
   margin-bottom: 60px;
 }
 
+/* Cover */
+
+.cover-heading {
+  font-size: 10em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 .cover-container {
   margin-right: auto;
   margin-left: auto;
@@ -29,10 +26,9 @@ html, body, #content{
 }
 
 .cover-info{
-  position: absolute;
-  bottom: 40%;
+  margin-top: 100%;
   text-align: center;
-  z-index: 3;
+  z-index: 10000;
 }
 
 .featurette-divider {
@@ -59,13 +55,6 @@ html, body, #content{
 }
 
 @media (min-width: 768px) {
-  /* Navbar positioning foo */
-  .cover-info{
-    right:20%;
-    left:20%;
-  }
-
-
   .featurette-heading {
     font-size: 50px;
   }
