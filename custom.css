@@ -15,7 +15,6 @@ html, body, #content{
 
 .cover-heading {
 	font-size: 5em;
-	padding-top: 20%;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .cover-container {
@@ -26,8 +25,10 @@ html, body, #content{
 }
 .cover-info{
   text-align: center;
-  z-index: 10000;
+	padding-top: 50%;
 }
+
+/* Features */
 .featurette-divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
 }
@@ -55,16 +56,19 @@ html, body, #content{
 	.cover-heading {
 		font-size: 10em;
 	}
+	.cover-info{
+		padding-top: 30%;
+	}
   .featurette-heading {
     font-size: 50px;
   }
 }
 
 @media (min-width: 992px) {
+	.cover-info{
+		padding-top: 15%;
+	}
   .featurette-heading {
     margin-top: 120px;
   }
-	.home-wrapper {
-		height: 100%;
-	}
 }
