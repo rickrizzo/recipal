@@ -5,6 +5,9 @@ app.config(['$routeProvider', function($routeProvider){
     when('/',{
         templateUrl:"views/home.html"
     }).
+    when('/recipes',{
+    	templateUrl:"views/recipes.html"
+    }).
     otherwise({
         redirectTo:'/'
     });
