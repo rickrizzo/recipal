@@ -73,17 +73,3 @@ html, body, #content{
     margin-top: 120px;
   }
 }
-
-.tile{
-  border: solid 1px #a5a29d;
-  border-radius: 2px;
-  padding-top: 2%;
-}
-.tile-image{
-  width:100%;
-}
-
-.tile-title{
-  text-align: center;
-}
-

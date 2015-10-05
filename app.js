@@ -1,4 +1,4 @@
-var app = angular.module('recipals',['ngRoute', 'recipal.allRecipesCtrl', 'recipal.recipeCtrl']);
+var app = angular.module('recipals',['ngRoute', 'recipal.allRecipesCtrl']);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
@@ -8,10 +8,6 @@ app.config(['$routeProvider', function($routeProvider){
     when('/recipes',{
     	templateUrl:"views/recipes.html",
         controller:"allRecipesCtrl"
-    }).
-    when('/recipes/:recipe_name',{
-        templateUrl:"views/recipeTemplate.html",
-        controller:"recipeCtrl"
     }).
     otherwise({
         redirectTo:'/'
