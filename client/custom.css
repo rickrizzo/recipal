@@ -1,0 +1,75 @@
+html, body, #content{
+	height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Background Image */
+
+.home-wrapper{
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/veggies.jpg");
+	vertical-align: middle;
+	height: 80%;
+}
+
+/* Cover */
+
+.cover-heading {
+  margin-top: 0;
+	font-size: 5em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  color:white;
+}
+.cover-info{
+  text-align: center;
+	padding-top: 50%;
+}
+
+/* Features */
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+	.cover-heading {
+		font-size: 10em;
+	}
+	.cover-info{
+		padding-top: 30%;
+	}
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+	.cover-info{
+		padding-top: 15%;
+	}
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
