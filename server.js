@@ -2,7 +2,7 @@ var path = require('path');
 var routes = require('./server/routes/index');
 var bodyParser = require('body-parser');
 var connect = require('connect');
-var mongoConnect = require('./mongoConnect.js');
+var mongoConnect = require('./server/mongoConnect.js');
 
 
 var db;
