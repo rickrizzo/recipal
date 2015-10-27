@@ -4,15 +4,15 @@ var app = angular.module('recipals',['ngRoute', 'ui.bootstrap', 'recipal.homeCtr
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
     when('/',{
-        templateUrl:"views/home.html",
+        templateUrl:"client/views/home.html",
         controller:"homeCtrl"
     }).
     when('/recipes',{
-    	templateUrl:"views/recipes.html",
+    	templateUrl:"client/views/recipes.html",
         controller:"allRecipesCtrl"
     }).
     when('/recipes/:recipe',{
-        templateUrl:"views/recipeTemplate.html",
+        templateUrl:"client/views/recipeTemplate.html",
         controller:"recipeCtrl"
     }).
     otherwise({

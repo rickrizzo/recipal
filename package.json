@@ -1,7 +1,7 @@
 {
   "name": "recipal",
   "version": "1.0.0",
-  "description": "A recomendation based cooking app",
+  "description": "A recommendation based cooking app",
   "main": "app.js",
   "dependencies": {
     "angular": "^1.4.5",
@@ -13,7 +13,8 @@
     "connect": "^3.4.0",
     "express": "^4.13.3",
     "hover.css": "^2.0.2",
-    "mongodb": "^2.0.43"
+    "mongodb": "^2.0.43",
+    "passport": "^0.3.0"
   },
   "devDependencies": {},
   "scripts": {
