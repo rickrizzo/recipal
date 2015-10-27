@@ -6,7 +6,7 @@ homeApp.controller('homeCtrl', ['$scope', '$modal', function($scope, $modal){
         $scope.alerts = [];
         $scope.modalInstance = $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: 'views/loginModal.html',
+          templateUrl: 'client/views/loginModal.html',
           controller: ['$scope', function(scope){
           	scope.cancel = $scope.cancel;
           }]
