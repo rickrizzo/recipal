@@ -15,6 +15,14 @@ app.config(['$routeProvider', function($routeProvider){
         templateUrl:"client/views/recipeTemplate.html",
         controller:"recipeCtrl"
     }).
+    when('/login',{
+        templateUrl:"client/views/login.html",
+        controller:"loginController"
+    }).
+    when('/register',{
+        templateUrl:"client/views/login.html",
+        controller:"registerController"
+    }).
     otherwise({
         redirectTo:'/'
     });
