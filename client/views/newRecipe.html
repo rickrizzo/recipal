@@ -1,10 +1,4 @@
-<!--<!DOCTYPE html>
-<html>
-<head>
-  <title>Add Recipe</title>
-</head>
-<body>-->
-<section ng-app="recipal.newRecipeCtrl" ng-controller="newRecipeCtrl">
+<section id="newRecipe" class="contianer" ng-app="recipal.newRecipeCtrl" ng-ctrl="newRecipeCtrl">
   <form method="get" action="">
     <fieldset>
       <legend>New Recipe</legend>
@@ -18,19 +12,22 @@
       <!--Description-->
       <section>
         <label for="description">Recipe Description:</label>
+        <br>
         <textarea id="description" placeholder="Describe the recipe here..."></textarea>
       </section>
       
       <!--Cook Time-->
       <section>
-        <label for="cookTime">Cook Time:</label>
-        <input type="time" id="cookTime">
+        <label for="cookTimeH">Cook Time:</label>
+        <input type="number" id="cookTimeH"> Hours
+        <input type="number" id="cookTimeM"> Minutes
       </section>
       
       <!--Prep Time-->
       <section>
-        <label for="prepTime">Prep Time:</label>
-        <input type="time" id="prepTime">
+        <label for="prepTimeH">Prep Time:</label>
+        <input type="number" id="prepTimeH"> Hours
+        <input type="number" id="prepTimeM"> Minutes
       </section>
       
       <!--Ingredients-->
@@ -55,5 +52,3 @@
     </fieldset>
   </form>
 </section>
-<!--</body>
-</html>-->

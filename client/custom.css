@@ -175,3 +175,22 @@ html, body, #content{
 .hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
 }
+
+/* New Recipe Form */
+#newRecipe {
+  margin: 100px; /*Add more responsive format later*/
+}
+
+#newRecipe section {
+  margin: 3em 0;
+}
+
+#newRecipe label {
+  float: left;
+  margin: 0 1em 0 0;
+  clear: both;
+}
+
+#newRecipe input[type=number] {
+  width: 2em;
+}
