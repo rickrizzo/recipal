@@ -1,5 +1,5 @@
 var app = angular.module('recipals',['ngRoute', 'ui.bootstrap', 'recipal.homeCtrl',
- 'recipal.allRecipesCtrl', 'recipal.recipeCtrl'/*, 'recipal.newRecipeCtrl'*/]);
+ 'recipal.allRecipesCtrl', 'recipal.recipeCtrl', 'recipal.newRecipeCtrl']);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
@@ -13,7 +13,7 @@ app.config(['$routeProvider', function($routeProvider){
     }).
     when('/recipes/newRecipe',{
         templateUrl:"client/views/newRecipe.html",
-        //controller:"newRecipeCtrl"
+        controller:"newRecipeCtrl"
     }).
     when('/recipes/:recipe',{
         templateUrl:"client/views/recipeTemplate.html",
