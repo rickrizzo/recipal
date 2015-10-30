@@ -1,5 +1,8 @@
+angular.module('recipals').controller('loginController',
+  ['$scope', '$location', 'AuthService',
+  function ($scope, $location, AuthService) {
 
-angular.module('recipals').controller('loginController',['$scope', '$location', 'AuthService', function ($scope, $location, AuthService) {
+    console.log(AuthService.getUserStatus());
 
     $scope.login = function () {
 
@@ -11,7 +14,6 @@ angular.module('recipals').controller('loginController',['$scope', '$location', 
       AuthService.login($scope.loginForm.username, $scope.loginForm.password)
         // handle success
         .then(function () {
-          $scope.$parent.$parent.setUser($scope.loginForm.username);
           $location.path('/');
           $scope.disabled = false;
           $scope.loginForm = {};
@@ -23,5 +25,7 @@ angular.module('recipals').controller('loginController',['$scope', '$location', 
           $scope.disabled = false;
           $scope.loginForm = {};
         });
+
     };
+
 }]);
