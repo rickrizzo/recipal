@@ -57,6 +57,7 @@ app.use('/', express.static(path.join(__dirname, '/')));
 app.use('/', routes);
 //app.use('/newRecipe', );
 app.use('/login', routes);
+app.use('/recipes', recipes);
 app.use('/newRecipes', recipes);
 
 
