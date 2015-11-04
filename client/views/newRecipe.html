@@ -1,6 +1,6 @@
 <section id="newRecipe" class="contianer" ng-app="recipal.newRecipeCtrl" ng-ctrl="newRecipeCtrl">
   <testDir></testDir>
-  <form method="get" action="">
+  <form id="newRicepeForm">
     <fieldset>
       <legend>New Recipe</legend>
 
@@ -48,7 +48,7 @@
       <!--Options-->
       <section>
         <input type="button" value="Reset">
-        <input type="submit" value="Save">
+        <input ng-click="submitRecipe()" type="submit" value="Save">
       </section>
     </fieldset>
   </form>

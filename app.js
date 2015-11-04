@@ -11,7 +11,7 @@ app.config(['$routeProvider', function($routeProvider){
     	templateUrl:"client/views/recipes.html",
         controller:"allRecipesCtrl"
     }).
-    when('/recipes/newRecipe',{
+    when('/newRecipe',{
         templateUrl:"client/views/newRecipe.html",
         controller:"newRecipeCtrl"
     }).
