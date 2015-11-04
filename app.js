@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-var app = angular.module('recipals',['ngRoute', 'ui.bootstrap', 'recipal.homeCtrl',
- 'recipal.allRecipesCtrl', 'recipal.recipeCtrl', 'recipal.newRecipeCtrl']);
-=======
 var app = angular.module('recipals',['ngRoute', 'ngCookies', 'ui.bootstrap', 'recipal.homeCtrl',
- 'recipal.allRecipesCtrl', 'recipal.recipeCtrl']);
->>>>>>> dev
+ 'recipal.allRecipesCtrl', 'recipal.recipeCtrl', 'recipal.newRecipeCtrl']);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
