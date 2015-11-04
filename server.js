@@ -34,6 +34,7 @@ app.use('/', express.static(path.join(__dirname, '/')));
 
 
 app.use('/', routes);
+//app.use('/newRecipe', );
 /*
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
