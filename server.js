@@ -1,5 +1,6 @@
 var path = require('path');
 var routes = require('./server/routes/index');
+var recipes = require('./server/routes/recipes');
 var bodyParser = require('body-parser');
 var connect = require('connect');
 var mongoConnect = require('./server/mongoConnect.js');
@@ -55,6 +56,7 @@ app.use('/', express.static(path.join(__dirname, '/')));
 
 app.use('/', routes);
 app.use('/login', routes);
+app.use('/newRecipes', recipes);
 
 
 
