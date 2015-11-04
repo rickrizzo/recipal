@@ -20,7 +20,7 @@ app.config(['$routeProvider', function($routeProvider){
         controller:"loginController"
     }).
     when('/register',{
-        templateUrl:"client/views/login.html",
+        templateUrl:"client/views/register.html",
         controller:"registerController"
     }).
     otherwise({
@@ -30,7 +30,6 @@ app.config(['$routeProvider', function($routeProvider){
 
 
 app.controller('indexCtrl', ['$scope', 'AuthService', '$cookies', '$location', function($scope, AuthService, $cookies, $location){
-    //$scope.site = '';
     $scope.user = $cookies.get('username');
 
     $scope.isLoggedIn = function(){

@@ -10,16 +10,10 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-/*var routes = require('./server/routes/index');*/
-
 
 var uri = 'mongodb://localhost:27017/recipals';
 var db = require('mongoose').connect(uri);
-/*var db;
-mongoConnect.connect().then(function() {
-    //maybe some additional logic if need by when mongo connects
-    db = mongoConnect.db;
-});*/
+
 
 var express = require('express'),
     port = 8005,
@@ -55,6 +49,7 @@ app.use('/', express.static(path.join(__dirname, '/')));
 
 app.use('/', routes);
 app.use('/login', routes);
+app.use('/register', routes);
 
 
 
@@ -74,9 +69,6 @@ passport.use(new LocalStrategy(
 ));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
-
-//mongoose.connect('mongodb://localhost:27017/Recipals');
-
 
 
 // catch 404 and forward to error handler

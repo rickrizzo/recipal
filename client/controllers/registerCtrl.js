@@ -2,8 +2,6 @@ angular.module('recipals').controller('registerController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
-    console.log(AuthService.getUserStatus());
-
     $scope.register = function () {
 
       // initial values
