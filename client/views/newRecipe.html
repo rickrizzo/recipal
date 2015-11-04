@@ -1,0 +1,55 @@
+<section id="newRecipe" class="contianer" ng-app="recipal.newRecipeCtrl" ng-ctrl="newRecipeCtrl">
+  <testDir></testDir>
+  <form id="newRicepeForm">
+    <fieldset>
+      <legend>New Recipe</legend>
+
+      <!--Name-->
+      <section>
+        <label for="name">Recipe Name:</label>
+        <input type="text" id="name">
+      </section>
+
+      <!--Description-->
+      <section>
+        <label for="description">Recipe Description:</label>
+        <br>
+        <textarea id="description" placeholder="Describe the recipe here..."></textarea>
+      </section>
+      
+      <!--Cook Time-->
+      <section>
+        <label for="cookTimeH">Cook Time:</label>
+        <input type="number" id="cookTimeH"> Hours
+        <input type="number" id="cookTimeM"> Minutes
+      </section>
+      
+      <!--Prep Time-->
+      <section>
+        <label for="prepTimeH">Prep Time:</label>
+        <input type="number" id="prepTimeH"> Hours
+        <input type="number" id="prepTimeM"> Minutes
+      </section>
+      
+      <!--Ingredients-->
+      <section>
+        <label for="ingredients">Recipe Ingredients:</label>
+        <input type="text">
+        <input addIngredient type="button" value="+">
+      </section>
+
+      <!--Instructions-->
+      <section>
+        <label for="instructions">Instructions</label>
+        <input type="text">
+        <input type="button" value="+">
+      </section>
+
+      <!--Options-->
+      <section>
+        <input type="button" value="Reset">
+        <input ng-click="submitRecipe()" type="submit" value="Save">
+      </section>
+    </fieldset>
+  </form>
+</section>
