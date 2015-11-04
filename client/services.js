@@ -1,16 +1,10 @@
-angular.module('recipals').factory('AuthService',
-  ['$q', '$timeout', '$http',
-  function ($q, $timeout, $http) {
+angular.module('recipals').factory('AuthService', ['$q', '$timeout', '$http', '$cookies',  function ($q, $timeout, $http, $cookies) {
 
     // create user variable
-    var user = null;
+    var user = $cookies.get('loggedIn');
 
     function isLoggedIn() {
-      if(user) {
-        return true;
-      } else {
-        return false;
-      }
+      return $cookies.get('loggedIn') == 'true';
     }
 
     function getUserStatus() {
@@ -27,9 +21,13 @@ angular.module('recipals').factory('AuthService',
         // handle success
         .success(function (data, status) {
           if(status === 200 && data.status){
+            $cookies.put('username', data.username);
+            $cookies.put('loggedIn', true);
             user = true;
             deferred.resolve();
           } else {
+            $cookies.remove('username');
+            $cookies.put('loggedIn', false);
             user = false;
             deferred.reject();
           }
@@ -55,10 +53,14 @@ angular.module('recipals').factory('AuthService',
         // handle success
         .success(function (data) {
           user = false;
+          $cookies.remove('username');
+          $cookies.put('loggedIn', false);
           deferred.resolve();
         })
         // handle error
         .error(function (data) {
+          $cookies.remove('username');
+          $cookies.put('loggedIn', false);
           user = false;
           deferred.reject();
         });

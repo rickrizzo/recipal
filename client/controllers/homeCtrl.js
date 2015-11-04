@@ -2,6 +2,9 @@ var homeApp = angular.module('recipal.homeCtrl', ['ui.bootstrap']);
 
 homeApp.controller('homeCtrl', ['$scope', '$modal', function($scope, $modal){
 
+
+    $scope.isLoggedIn = $scope.$parent.$parent.isLoggedIn;
+
     $scope.loginModal = function () {
         $scope.alerts = [];
         $scope.modalInstance = $modal.open({
