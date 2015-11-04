@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 var app = angular.module('recipals',['ngRoute', 'ui.bootstrap', 'recipal.homeCtrl',
  'recipal.allRecipesCtrl', 'recipal.recipeCtrl', 'recipal.newRecipeCtrl']);
+=======
+var app = angular.module('recipals',['ngRoute', 'ngCookies', 'ui.bootstrap', 'recipal.homeCtrl',
+ 'recipal.allRecipesCtrl', 'recipal.recipeCtrl']);
+>>>>>>> dev
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
@@ -19,7 +24,36 @@ app.config(['$routeProvider', function($routeProvider){
         templateUrl:"client/views/recipeTemplate.html",
         controller:"recipeCtrl"
     }).
+    when('/login',{
+        templateUrl:"client/views/login.html",
+        controller:"loginController"
+    }).
+    when('/register',{
+        templateUrl:"client/views/login.html",
+        controller:"registerController"
+    }).
     otherwise({
         redirectTo:'/'
     });
+}]);
+
+
+app.controller('indexCtrl', ['$scope', 'AuthService', '$cookies', '$location', function($scope, AuthService, $cookies, $location){
+    //$scope.site = '';
+    $scope.user = $cookies.get('username');
+
+    $scope.isLoggedIn = function(){
+        return AuthService.isLoggedIn();
+    }
+
+    $scope.setUser = function(name){
+        $scope.user = name;
+    }
+
+    $scope.logout = function(){
+        AuthService.logout().then(function () {
+          $location.path('/');
+          $scope.user = '';
+        });
+    }
 }]);
