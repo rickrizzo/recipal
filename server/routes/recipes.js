@@ -11,6 +11,14 @@ router.get('/', function(req, res){
 	});
 });
 
+router.get('/:recipe', function(req, res){
+	console.log(req.params.recipe);
+	Recipe.findOne({name: req.params.recipe},function(err, recipe){
+		console.log(recipe);
+		res.send(recipe);
+	});
+});
+
 
 
 
