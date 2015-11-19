@@ -65,7 +65,7 @@ app.use('/newRecipes', recipes);
 
 // passport config
 var Account = require('./server/models/account.js');
-passport.use(new LocalStrategy(
+/*passport.use(new LocalStrategy(
   function(username, password, done) {
     Account.findOne({ username: username }, function (err, user) {
         console.log(user);
@@ -75,7 +75,8 @@ passport.use(new LocalStrategy(
       return done(null, user);
     });
   }
-));
+));*/
+passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
