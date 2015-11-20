@@ -57,6 +57,7 @@ calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', '$http', function
     function showModal(action, event) {
       $uibModal.open({
         templateUrl: 'client/views/recipeModal.html',
+        animation: true,
         controller: ['$scope', function(scope) {
           scope.weekday = $scope.weekday;
           scope.recipe = $scope.recipe;

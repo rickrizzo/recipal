@@ -1,5 +1,11 @@
 <div class="modal-header">
-	<h3 class="modal-title">{{weekday[event.dayOffset]}}</h3>
+		<div class="col">
+			<a ng-click="$close()"><span class="pull-right glyphicon glyphicon-remove" ></span></a>
+		</div>
+		<div class="col">
+			<h3 class="modal-title">{{weekday[event.dayOffset]}}</h3>
+		</div>
+
 </div>
 <div class="modal-body">
 	<p>

@@ -1,10 +1,10 @@
 
-<div ng-app="recipal.homeCtrl" ng-controller="homeCtrl">
+<div ng-app="recipal.homeCtrl" class="home-page" ng-controller="homeCtrl">
   <div class="home-wrapper">
     <div class="site-wrapper-inner">
       <div class="cover-container">
         <div class="cover-info">
-          <h1 class="cover-heading">ReciPal</h1>
+          <h1 class="cover-heading"><img width="40%" src="client/images/recipal-text-inverse.png"></h1>
             <p class="lead">Simplify your food. Simplify your life.</p>
             <p ng-hide="isLoggedIn()" class="lead">
               <a class="btn btn-lg btn-default" href="#/login">Sign In</a>
@@ -23,11 +23,7 @@
     <a ng-click='logout()' class="btn btn-default">Logout</a>
   </div>-->
   </div>
-  	<div class="container cover-container">
-  		<h1>ReciPal</h1>
-  	</div>
-  <div>
-  	<div class="container marketing">
+	<div class="container-fluid marketing">
 
         <!-- Three columns of text below the carousel -->
         <div class="row">
@@ -58,9 +54,9 @@
         </div><!-- /.row -->
 
 
-        <!-- START THE FEATURETTES -->
+      <!-- START THE FEATURETTES -->
 
-        <hr class="featurette-divider">
+      <!--<hr class="featurette-divider">-->
 
         <div class="row featurette">
           <div class="col-md-7">
@@ -71,32 +67,40 @@
             <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
           </div>
         </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5 col-md-pull-7">
-            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
+      </div>
     </div>
+
+      <!--<hr class="featurette-divider">-->
+
+      <div class="container-fluid" id="home-section4">
+      <div class="container featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+      </div>
+
+      <!--<hr class="featurette-divider">-->
+
+      <div class="container-fluid" id="home-section5">
+      <div class="container featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+    </div>
+
+      <!--<hr class="featurette-divider">-->
   </div>
 </div>
