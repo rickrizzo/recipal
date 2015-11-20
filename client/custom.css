@@ -4,11 +4,15 @@ html, body, #content{
 }
 
 /* Background Image */
+.home-page{
+  background: center no-repeat fixed url("images/gourmet.jpg");
+  background-size: 100%;
+}
 
 .home-wrapper{
-	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/veggies.jpg");
+	background-color: rgba(0,0,0,0.5);
 	vertical-align: middle;
-	height: 80%;
+	height: 100vh;
 }
 
 /* Cover */
@@ -26,12 +30,20 @@ html, body, #content{
 }
 .cover-info{
   text-align: center;
-	padding-top: 50%;
+	padding-top: 30%;
 }
 
 /* Features */
 .featurette-divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+.marketing .container-fluid{
+  padding: 80px 0;
+}
+
+#home-section2, #home-section4 {
+  background-color: white;
 }
 
 /* Thin out the marketing headings */
@@ -48,9 +60,15 @@ html, body, #content{
 .marketing h2 {
   font-weight: normal;
 }
+
 .marketing .col-lg-4 p {
   margin-right: 10px;
   margin-left: 10px;
+}
+
+.container-fluid.marketing{
+  padding-right: 0;
+  padding-left: 0;
 }
 
 @media (min-width: 768px) {
