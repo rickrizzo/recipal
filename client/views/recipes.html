@@ -1,22 +1,19 @@
 <div style="margin-top: 100px" class="container" ng-app="recipal.allRecipesCtrl" ng-ctrl="allRecipesCtrl">
 	<div class="row">
-		<div class="hvr-glow tile col col-md-4 col-sm-6">
+		<div class="hvr-glow tile col col-md-4 col-sm-6" ng-repeat="recipe in recipes">
+			<a href="#/recipes/{{recipe.name}}">
+				<img class='tile-image' ng-src="{{recipe.image}}">
+			</a>
+			<div class="tile-title">
+				<a><h2>{{recipe.name}}</h2></a>
+			</div>
+		</div>
+		<!--<div class="hvr-glow tile col col-md-4 col-sm-6">
 			<a href="#/recipes/example">
 				<img class='tile-image' src="client/images/sample1.jpg">
 			</a>
 			<div class="tile-title">
 				<a><h2>Food name</h2></a>
-			</div>
-		</div>
-		<div class="hvr-glow tile col col-md-4 col-sm-6">
-			<a href="#/recipes/example">
-				<img class='tile-image' src="client/images/sample1.jpg">
-			</a>
-			<div class="tile-title">
-				<a><h2>Food name</h2></a>
-			</div>
-		</div>
-		
+			</div>-->
 	</div>
-
 </div>

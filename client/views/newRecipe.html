@@ -1,5 +1,4 @@
 <section id="newRecipe" class="contianer" ng-app="recipal.newRecipeCtrl" ng-ctrl="newRecipeCtrl">
-  <testDir></testDir>
   <form id="newRicepeForm">
     <fieldset>
       <legend>New Recipe</legend>
@@ -8,6 +7,12 @@
       <section>
         <label for="name">Recipe Name:</label>
         <input type="text" id="name">
+      </section>
+
+      <!--Image-->
+      <section>
+        <label for="image">Recipe Image:</label>
+        <input type="file" name="pic" accept="image/*">
       </section>
 
       <!--Description-->
@@ -43,6 +48,14 @@
         <label for="instructions">Instructions</label>
         <input type="text">
         <input type="button" value="+">
+      </section>
+
+      <!--Restrictions-->
+      <section>
+        <label for="restrictions">Restrictions</label>
+        <br>
+        <!--Repleace with pick list-->
+        <textarea id="description" placeholder="List any potentially hazardous ingredients here..."></textarea>
       </section>
 
       <!--Options-->
