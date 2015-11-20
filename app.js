@@ -1,5 +1,5 @@
-var app = angular.module('recipals',['ngRoute', 'ngCookies', 'ui.bootstrap', 'recipal.homeCtrl',
- 'recipal.allRecipesCtrl', 'recipal.recipeCtrl', 'recipal.newRecipeCtrl']);
+var app = angular.module('recipals',['ngRoute', 'ngCookies', 'ui.bootstrap','mwl.calendar', 'recipal.homeCtrl',
+ 'recipal.allRecipesCtrl', 'recipal.recipeCtrl', 'recipal.newRecipeCtrl', 'recipal.calendarCtrl']);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
@@ -26,6 +26,10 @@ app.config(['$routeProvider', function($routeProvider){
     when('/register',{
         templateUrl:"client/views/register.html",
         controller:"registerController"
+    }).
+    when('/calendar',{
+        templateUrl:"client/views/calendar.html",
+        controller:"calendarCtrl"
     }).
     otherwise({
         redirectTo:'/'

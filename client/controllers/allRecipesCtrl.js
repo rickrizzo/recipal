@@ -11,5 +11,18 @@ allRecipesApp.controller('allRecipesCtrl', ['$scope', '$http', function($scope, 
         console.log(err);
     });
 
+	//pagination settings
+	$scope.totalItems = 64;
+	$scope.currentPage = 1;
+	$scope.maxSize = 5;
+	$scope.itemsPage = 15;
+
+	$scope.setPage = function (pageNo) {
+	$scope.currentPage = pageNo;
+	};
+
+	$scope.pageChanged = function() {
+	$log.log('Page changed to: ' + $scope.currentPage);
+	};
 
 }]);
