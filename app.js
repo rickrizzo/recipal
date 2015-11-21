@@ -1,4 +1,4 @@
-var app = angular.module('recipals',['ngRoute', 'ngCookies', 'ui.bootstrap','mwl.calendar', 'recipal.homeCtrl',
+var app = angular.module('recipals',['ngRoute', 'ngCookies', 'ui.bootstrap','mwl.calendar', 'ngAnimate', 'recipal.homeCtrl',
  'recipal.allRecipesCtrl', 'recipal.recipeCtrl', 'recipal.newRecipeCtrl', 'recipal.calendarCtrl']);
 
 app.config(['$routeProvider', function($routeProvider){

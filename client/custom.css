@@ -212,3 +212,32 @@ html, body, #content{
 #newRecipe input[type=number] {
   width: 2em;
 }
+
+.userForm{
+  margin: auto;
+  height: 100%;
+  padding-top: 100px;
+  vertical-align: middle;
+}
+
+/*transition aniimations*/
+.page.ng-leave  { z-index:9999; }
+.page.ng-enter  { z-index:8888; }
+
+/* The starting CSS styles for the enter animation */
+.view.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.view.ng-enter.ng-enter-active {
+  opacity:1;
+}
+.view.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
+}
+.view.ng-leave.ng-leave-active {
+  opacity:0;
+}
