@@ -2,7 +2,6 @@ html, body, #content{
 	height: 100%;
   font-family: 'Open Sans', sans-serif;
 }
-
 /* Background Image */
 .home-page{
   background: center no-repeat fixed url("images/gourmet.jpg");
@@ -14,7 +13,19 @@ html, body, #content{
 	vertical-align: middle;
 	height: 100vh;
 }
+.navbar{
+  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+}
+.big {
+    height:100px;   
+}
 
+.small {
+   height:40px;
+}
 /* Cover */
 
 .cover-heading {
@@ -194,7 +205,7 @@ a.tile:hover{
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
   -webkit-transition-property: box-shadow;
   transition-property: box-shadow;
 }
