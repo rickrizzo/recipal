@@ -5,7 +5,11 @@ angular.module('recipals').controller('registerController',
     console.log(AuthService.getUserStatus());
 
     $scope.register = function () {
-
+      if($scope.registerForm.password != $scope.registerForm.password2){
+        $scope.error = true;
+        $scope.errorMessage = 'Passwords do not match!';
+        return false;
+      }
       // initial values
       $scope.error = false;
       $scope.disabled = true;

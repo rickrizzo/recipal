@@ -1,7 +1,7 @@
 <div class="container" ng-controller="loginController">
   <div class="userForm col-md-6">
-    <h1>Login</h2>
-    <div ng-show="error" class="alert alert-danger"></div>
+    <h1><img width="30px" src="client/images/recipal-logo.png">Login</h2>
+    <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
     <form class="form" ng-submit="login()">
       <div class="form-group">
         <label>Username</label>
