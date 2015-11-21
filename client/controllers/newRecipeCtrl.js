@@ -2,6 +2,7 @@ var newRecipeApp = angular.module('recipal.newRecipeCtrl', []);
 
 newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $http) {
 	
+	//Variables
 	$scope.ingredients = [];	
 	$scope.instructions = [];
 
