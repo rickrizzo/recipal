@@ -1,0 +1,34 @@
+<div class="modal-header">
+		<div class="col">
+			<a ng-click="$close()"><span class="pull-right glyphicon glyphicon-remove" ></span></a>
+		</div>
+		<div class="col">
+			<h3 class="modal-title">{{weekday[event.dayOffset]}}</h3>
+		</div>
+
+</div>
+<div class="modal-body">
+	<p>
+		<h1>{{recipe.name}}</h1>
+		<img ng-src="{{recipe.image}}">
+		<div class="timing">
+			Prep Time: {{recipe.prepTime.hours}} hours and {{recipe.prepTime.min}} minutes, 
+			Cook Time: {{recipe.cookTime.hours}} hours and {{recipe.cookTime.min}} minutes
+		</div>
+		<div class="ingredients">
+			<h4>Ingredients:</h4>
+			<ul>
+				<li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient}}</li>
+			</ul>
+		</div>
+		<div class="directions">
+			<h4>Directions:</h4>
+			<ol>
+				<li ng-repeat="direction in recipe.instructions">{{direction}}</li>
+			</ol>
+		</div>
+	</p>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="$close()">OK</button>
+</div>

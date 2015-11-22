@@ -1,11 +1,22 @@
 var calendarApp = angular.module("recipal.calendarCtrl", ['mwl.calendar', 'ui.bootstrap']);
 
-calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', function($scope, $uibModal){
+calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', '$http', function($scope, $uibModal, $http){
 	$scope.calendarView = 'week';
 	$scope.calendarDay = new Date();
-	$scope.events = [
+	$scope.weekday = new Array(7);
+	$scope.weekday[0]=  "Sunday";
+	$scope.weekday[1] = "Monday";
+	$scope.weekday[2] = "Tuesday";
+	$scope.weekday[3] = "Wednesday";
+	$scope.weekday[4] = "Thursday";
+	$scope.weekday[5] = "Friday";
+	$scope.weekday[6] = "Saturday";
+	$scope.recipe;
+	$http.get('/recipes/Meatloaf').then(function(data){
+		$scope.recipe = data.data;
+			$scope.events = [
 	  {
-	    title: 'My event title', // The title of the event 
+	    title: '<div>'+$scope.recipe.name + '</div>' + '<img width="100%" src="'+$scope.recipe.image +'">', // The title of the event 
 	    type: 'info', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special 
 	    startsAt: new Date(), // A javascript date object for when the event starts 
 	    endsAt: new Date(), // Optional - a javascript date object for when the event ends 
@@ -18,6 +29,10 @@ calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', function($scope, 
 	    cssClass: 'a-css-class-name' //A CSS class (or more, just separate with spaces) that will be added to the event when it is displayed on each view. Useful for marking an event as selected / active etc 
 	  }
 	];
+		console.log(data);
+	}).catch(function(err){
+        console.log(err);
+    });
 
 	$scope.isCellOpen = true;
 
@@ -41,13 +56,14 @@ calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', function($scope, 
 
     function showModal(action, event) {
       $uibModal.open({
-        template: '<div class="modal-header"><h3 class="modal-title">Event action occurred!</h3></div><div class="modal-body"><p>Action: <pre>{{ vm.action }}</pre></p><p>Event: <pre>{{ vm.event | json }}</pre></p></div><div class="modal-footer"><button class="btn btn-primary" ng-click="$close()">OK</button></div>',
-        controller: function() {
-          var $scope = this;
-          $scope.action = action;
-          $scope.event = event;
-        },
-        controllerAs: '$scope'
+        templateUrl: 'client/views/recipeModal.html',
+        animation: true,
+        controller: ['$scope', function(scope) {
+          scope.weekday = $scope.weekday;
+          scope.recipe = $scope.recipe;
+          scope.action = action;
+          scope.event = event;
+        }]
       });
     }
 

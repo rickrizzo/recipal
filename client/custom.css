@@ -4,15 +4,32 @@ html, body, #content{
 }
 
 /* Background Image */
+.home-page{
+  background: center no-repeat fixed url("images/gourmet.jpg");
+  background-size: cover;
+}
 
 .home-wrapper{
-	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("images/veggies.jpg");
+	background-color: rgba(0,0,0,0.5);
 	vertical-align: middle;
-	height: 80%;
+	height: 100vh;
+}
+.navbar{
+  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+}
+.big {
+    height:100px;
+    padding-top: 25px;
+}
+
+.small {
+   height:40px;
 }
 
 /* Cover */
-
 .cover-heading {
   margin-top: 0;
 	font-size: 5em;
@@ -26,12 +43,20 @@ html, body, #content{
 }
 .cover-info{
   text-align: center;
-	padding-top: 50%;
+	padding-top: 30%;
 }
 
 /* Features */
 .featurette-divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+.marketing .container-fluid{
+  padding: 80px 0;
+}
+
+#home-section2, #home-section4 {
+  background-color: white;
 }
 
 /* Thin out the marketing headings */
@@ -48,9 +73,20 @@ html, body, #content{
 .marketing h2 {
   font-weight: normal;
 }
+
 .marketing .col-lg-4 p {
   margin-right: 10px;
   margin-left: 10px;
+}
+
+.container-fluid.marketing{
+  padding-right: 0;
+  padding-left: 0;
+}
+
+h1 img{
+  padding-top: 100px;
+  width: 60%;
 }
 
 @media (min-width: 768px) {
@@ -63,6 +99,9 @@ html, body, #content{
   .featurette-heading {
     font-size: 50px;
   }
+  h1 img{
+    width: 40%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -72,6 +111,26 @@ html, body, #content{
   .featurette-heading {
     margin-top: 120px;
   }
+  h1 img{
+    width: 40%;
+    padding-top: 0;
+  }
+}
+
+/* Login */
+#login input {
+  width: 100%;
+}
+#submit {
+  margin-top: 3em;
+}
+.center{
+  margin: 0 auto;
+  text-align: center;
+}
+.center img {
+  width: 30%;
+  margin-top: 3em;
 }
 
 
@@ -83,11 +142,19 @@ html, body, #content{
 }
 
 .tile-image{
-  width: 100%;
+  max-height: 200px;
+  width: auto;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tile-title{
   text-align: center;
+}
+
+a.tile:hover{
+  text-decoration: none;
 }
 
 
@@ -168,7 +235,7 @@ html, body, #content{
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
   -webkit-transition-property: box-shadow;
   transition-property: box-shadow;
 }
@@ -178,7 +245,7 @@ html, body, #content{
 
 /* New Recipe Form */
 #newRecipe {
-  margin: 100px; /*Add more responsive format later*/
+  margin-top: 120px; /*Add more responsive format later*/
 }
 
 #newRecipe section {
@@ -191,6 +258,58 @@ html, body, #content{
   clear: both;
 }
 
-#newRecipe input[type=number] {
+.userForm{
+  margin: auto;
+  height: 100%;
+  padding-top: 100px;
+  vertical-align: middle;
+}
+
+input[type=text], input[type=number], input[type=password] {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
   width: 2em;
+}
+
+textarea {
+  width: 100%;
+  height: 20em;
+}
+
+/*transition aniimations*/
+.page.ng-leave  { z-index:9999; }
+.page.ng-enter  { z-index:8888; }
+
+/* The starting CSS styles for the enter animation */
+.view.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.view.ng-enter.ng-enter-active {
+  opacity:1;
+}
+.view.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
+}
+.view.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+#preview {
+  float: right;
+  width: 50%;
 }
