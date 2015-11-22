@@ -19,6 +19,7 @@ router.get('/:recipe', function(req, res){
 	});
 });
 
+router.get('')
 
 
 
