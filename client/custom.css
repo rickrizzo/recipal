@@ -84,6 +84,11 @@ html, body, #content{
   padding-left: 0;
 }
 
+h1 img{
+  padding-top: 100px;
+  width: 60%;
+}
+
 @media (min-width: 768px) {
 	.cover-heading {
 		font-size: 10em;
@@ -94,6 +99,9 @@ html, body, #content{
   .featurette-heading {
     font-size: 50px;
   }
+  h1 img{
+    width: 40%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -102,6 +110,10 @@ html, body, #content{
 	}
   .featurette-heading {
     margin-top: 120px;
+  }
+  h1 img{
+    width: 40%;
+    padding-top: 0;
   }
 }
 
