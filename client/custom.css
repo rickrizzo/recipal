@@ -135,26 +135,49 @@ h1 img{
 
 
 /*recipes page tiles*/
+#addRecipe {
+  margin: 1em 0;
+}
 .tile{
-  border: solid 1px #a5a29d;
-  border-radius: 2px;
-  padding-top: 2%;
+  border: 1px solid #101010;
+  min-height: 20em;
+  margin-top: 1em;
+  min-width: 332px;
+  border-radius: 3px;
 }
 
 .tile-image{
-  max-height: 200px;
+  padding: 1em;
+  border-radius: 100%;
+  height: auto;
   width: auto;
+  max-height: 300px;
+  max-width: 300px;
   display:block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .tile-title{
   text-align: center;
+  color: black;
 }
 
 a.tile:hover{
   text-decoration: none;
+}
+
+/* Pagination */
+.pagination>li>a {
+  color: black;
+}
+
+.pagination>.active>a {
+  background-color: black;
+  border-color: black;
+}
+.pagination>.active>a:hover {
+  background-color: black;
+  border-color: black;
 }
 
 
