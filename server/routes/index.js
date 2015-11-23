@@ -19,6 +19,18 @@ router.post('/register', function(req, res) {
   });
 });
 
+router.get('/preferences', function(req, res){
+  console.log(req.params.username);
+  Account.findOne({username: req.params.username},function(err, username){
+    console.log(username);
+    res.send(username);
+  });
+});
+
+router.post('/preferences', function(req, res){
+  
+});
+
 
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {

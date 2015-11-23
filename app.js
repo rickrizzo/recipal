@@ -27,6 +27,10 @@ app.config(['$routeProvider', function($routeProvider){
         templateUrl:"client/views/register.html",
         controller:"registerController"
     }).
+    when('/preferences',{
+        templateUrl:"client/views/preferences.html",
+        controller:"preferencesCtrl"
+    }).
     when('/calendar',{
         templateUrl:"client/views/calendar.html",
         controller:"calendarCtrl"
