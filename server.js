@@ -13,21 +13,23 @@ var LocalStrategy = require('passport-local').Strategy;
 
 /*var routes = require('./server/routes/index');*/
 
-
-var uri='mongodb://recipal:root@ds057214.mongolab.com:57214/recipal'
-//var uri = 'mongodb://localhost:27017/recipals';
+//Mongo Database
+var uri='mongodb://recipal:root@ds057214.mongolab.com:57214/recipal';
 var db = require('mongoose').connect(uri);
+//var uri = 'mongodb://localhost:27017/recipals';
 /*var db;
 mongoConnect.connect().then(function() {
     //maybe some additional logic if need by when mongo connects
     db = mongoConnect.db;
 });*/
 
+//Express Setup
 var express = require('express'),
     port = 8005,
     app = express();
 
 
+//Access Control Options
 app.options("*", function (req, res) {
     console.log("OPTIONS");
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -36,10 +38,10 @@ app.options("*", function (req, res) {
     res.end();
 });
 
-// view engine setup
+//View Engine Setup
 app.set('views', path.join(__dirname, 'views'));
 
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+//App Modules
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,9 +56,8 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', express.static(path.join(__dirname, '/')));
 
-
+//Routes
 app.use('/', routes);
-//app.use('/newRecipe', );
 app.use('/login', routes);
 app.use('/recipes', recipes);
 app.use('/newRecipes', recipes);
@@ -64,7 +65,7 @@ app.use('/newRecipes', recipes);
 
 
 
-// passport config
+//Passport Configuration
 var Account = require('./server/models/account.js');
 /*passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -114,6 +115,6 @@ app.use(function (err, req, res, next) {
     });
 });*/
 
-//app.listen(port);
+//Application Port
 app.listen(process.env.PORT || port);
 console.log('Server running on port ' + port + '.');

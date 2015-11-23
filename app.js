@@ -1,6 +1,7 @@
 var app = angular.module('recipals',['ngRoute', 'ngCookies', 'ui.bootstrap','mwl.calendar', 'ngAnimate', 'recipal.homeCtrl',
  'recipal.allRecipesCtrl', 'recipal.recipeCtrl', 'recipal.newRecipeCtrl', 'recipal.calendarCtrl', 'recipal.preferencesCtrl']);
 
+//Routing
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
     when('/',{
@@ -40,8 +41,9 @@ app.config(['$routeProvider', function($routeProvider){
     });
 }]);
 
-
+//Index Controller
 app.controller('indexCtrl', ['$scope', 'AuthService', '$cookies', '$location','$window', function($scope, AuthService, $cookies, $location, $window){
+    //User Authentication Functions
     $scope.user = $cookies.get('username');
     $scope.isLoggedIn = function(){
         return AuthService.isLoggedIn();
@@ -57,6 +59,8 @@ app.controller('indexCtrl', ['$scope', 'AuthService', '$cookies', '$location','$
           $scope.user = '';
         });
     }
+
+    //Menu Items
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
     };
