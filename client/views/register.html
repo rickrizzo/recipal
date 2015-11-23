@@ -1,23 +1,28 @@
 <div class="container">
-  <div class="userForm col-md-6">
-    <h1><img width="30px" src="client/images/recipal-logo.png">Register</h2>
+  <div class="userForm">
+    <div class="row center">
+      <img src="client/images/recipal-logo.png">
+      <h1>Register</h2>
+    </div>
+    
     <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
-    <form class="form" ng-submit="register()">
-      <div class="form-group">
+    <form id="register" class="form" ng-submit="register()">
+      <div class="col-sm-12">
         <label>Username</label>
-        <input type="text" class="form-control" name="username" ng-model="registerForm.username" required>
+        <input type="text" name="username" ng-model="registerForm.username" required>
       </div>
-      <div class="form-group">
+      <div class="col-sm-6">
         <label>Password</label>
-        <input type="password" class="form-control" name="password" ng-model="registerForm.password" required>
+        <input type="password" name="password" ng-model="registerForm.password" required>
       </div>
-      <div class="form-group">
+      <div class="col-sm-6">
         <label>Confirm Password</label>
-        <input type="password" class="form-control" name="confirmPassword" ng-model="registerForm.password2" required>
+        <input type="password" name="confirmPassword" ng-model="registerForm.password2" required>
       </div>
-      <div>
-        <button type="submit" class="btn btn-default" ng-disabled="disabled">Register</button>
+      <div id="submit" class="row center">
+        <button type="submit" class="btn" ng-disabled="disabled">Register</button>
       </div>
     </form>
+    
   </div>
 </div>

@@ -117,11 +117,17 @@ h1 img{
   }
 }
 
-/* Login */
+/* Login & Register */
 #login input {
   width: 100%;
 }
-#submit {
+#register input {
+  width: 100%;
+}
+#register label {
+  margin: 2em 0 0 0;
+}
+#submit button{
   margin-top: 3em;
 }
 .center{

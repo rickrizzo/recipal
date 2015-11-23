@@ -39,14 +39,14 @@
         <!--Name-->
         <section class="col-sm-6">
           <label for="name">Recipe Name:</label>
-          <input type="text" ng-model="name" id="name">
+          <input type="text" ng-model="name" id="name" required>
         </section>
 
         <!--Image-->
         <section class="col-sm-6">
           <label for="image">Recipe Image URL:</label>
           <!--<input type="file" name="pic" accept="image/*">-->
-          <input type="text" ng-model="image" id="image" placeholder="Enter valid URL">
+          <input type="text" ng-model="image" id="image" placeholder="Enter valid URL" required>
         </section>
       </div>
 
@@ -69,7 +69,7 @@
         <!--Difficulty-->
         <section class="col-md-4 col-sm-1">
           <label for="difficulty">Difficulty:</label>
-          <select name="difficulty" ng-model ="difficulty" id="diff">
+          <select name="difficulty" ng-model ="difficulty" id="diff" required>
             <option value="0">Easy</option>
             <option value="1">Medium</option>
             <option value="2">Expert</option>
