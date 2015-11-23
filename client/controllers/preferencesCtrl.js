@@ -11,7 +11,7 @@ preferencesApp.controller('preferencesCtrl',['$scope', '$http', function($scope,
 
 	$scope.addPreference = function() {
 		$scope.preferences.push($scope.preferenceName);
-		var res = $http.post('/preferences', $scope.preferenceName);
+		var res = $http.post('/preferences', {'preferenceName': $scope.preferenceName});
 		res.success(function(data, status, headers, config) {
 			$scope.preferenceName = '';
 			$scope.message = data;

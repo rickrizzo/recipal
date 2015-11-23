@@ -25,11 +25,18 @@ router.get('/preferences', function(req, res){
     res.send(preferences);
   })
   //console.log(req.cookies);
-  
 });
 
 router.post('/preferences', function(req, res){
-  
+  Account.findOne({username: req.cookies.username}, 'preferences', function(err, preferences){
+    console.log(preferences);
+    preferences.preferences.push(req.body.preferenceName);
+    Account.update({username: req.cookies.username},{'preferences': preferences.preferences}, function(err, doc){
+      if(err) return res.status(500).json({err:err});
+      res.status(200).json({status: 'Login successful!'});
+    });
+    
+  });
 });
 
 router.get('/calendar', function(req, res){
