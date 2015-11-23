@@ -17,7 +17,7 @@ newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $h
 				difficulty: $scope.difficulty,
 				description: $scope.description,
 				ingredients: $scope.ingredients,
-				instruction: $scope.instructions,
+				instructions: $scope.instructions,
 				restrictions : $scope.restrictions
 		};
 		console.log($scope.restrictions);
