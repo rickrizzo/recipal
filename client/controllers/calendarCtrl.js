@@ -11,7 +11,7 @@ calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', '$http', function
 	$scope.weekday[4] = "Thursday";
 	$scope.weekday[5] = "Friday";
 	$scope.weekday[6] = "Saturday";
-	$scope.recipe;
+	$scope.recipes = {};
   var holder = [];
   var count = 0;
   $http.get('/calendar').then(function(data){
@@ -21,6 +21,7 @@ calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', '$http', function
       if(data.data[recipeName] != undefined){
         $http.get('/recipes/' + data.data[recipeName]).then(function(data){
           console.log(holder[count]);
+          $scope.recipes[holder[count]] = data.data;
           $scope.events.push(
             {
               title: '<div>'+ data.data.name + '</div>' + '<img width="100%" src="'+ data.data.image +'">', // The title of the event 
@@ -66,12 +67,13 @@ calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', '$http', function
     }*/
 
     function showModal(action, event) {
+      console.log($scope.recipes);
       $uibModal.open({
         templateUrl: 'client/views/recipeModal.html',
         animation: true,
         controller: ['$scope', function(scope) {
           scope.weekday = $scope.weekday;
-          scope.recipe = $scope.recipe;
+          scope.recipe = $scope.recipes[event.dayOffset];
           scope.action = action;
           scope.event = event;
         }]
