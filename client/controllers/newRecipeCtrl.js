@@ -18,7 +18,9 @@ newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $h
 				description: $scope.description,
 				ingredients: $scope.ingredients,
 				instruction: $scope.instructions,
+				restrictions : $scope.restrictions
 		};
+		console.log($scope.restrictions);
 		var res = $http.post('/newRecipe', dataObj);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
