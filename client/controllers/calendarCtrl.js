@@ -12,27 +12,38 @@ calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', '$http', function
 	$scope.weekday[5] = "Friday";
 	$scope.weekday[6] = "Saturday";
 	$scope.recipe;
-	$http.get('/recipes/Meatloaf').then(function(data){
-		$scope.recipe = data.data;
-			$scope.events = [
-	  {
-	    title: '<div>'+$scope.recipe.name + '</div>' + '<img width="100%" src="'+$scope.recipe.image +'">', // The title of the event 
-	    type: 'info', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special 
-	    startsAt: new Date(), // A javascript date object for when the event starts 
-	    endsAt: new Date(), // Optional - a javascript date object for when the event ends 
-	    editable: false, // If edit-event-html is set and this field is explicitly set to false then dont make it editable. 
-	    deletable: false, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable 
-	    draggable: true, //Allow an event to be dragged and dropped 
-	    resizable: true, //Allow an event to be resizable 
-	    incrementsBadgeTotal: true, //If set to false then will not count towards the badge total amount on the month and year view 
-	    recursOn: 'year', // If set the event will recur on the given period. Valid values are year or month 
-	    cssClass: 'a-css-class-name' //A CSS class (or more, just separate with spaces) that will be added to the event when it is displayed on each view. Useful for marking an event as selected / active etc 
-	  }
-	];
-		console.log(data);
-	}).catch(function(err){
-        console.log(err);
-    });
+  var holder = [];
+  var count = 0;
+  $http.get('/calendar').then(function(data){
+    console.log(data.data);
+    for(recipeName in data.data){
+      holder.push(recipeName);
+      if(data.data[recipeName] != undefined){
+        $http.get('/recipes/' + data.data[recipeName]).then(function(data){
+          console.log(holder[count]);
+          $scope.events.push(
+            {
+              title: '<div>'+ data.data.name + '</div>' + '<img width="100%" src="'+ data.data.image +'">', // The title of the event 
+              type: 'info', // The type of the event (determines its color). Can be important, warning, info, inverse, success or special 
+              startsAt: moment().startOf('week').add(holder[count],'days').toDate(), // A javascript date object for when the event starts 
+              endsAt: moment().startOf('week').add(holder[count],'days').toDate(), // Optional - a javascript date object for when the event ends 
+              editable: false, // If edit-event-html is set and this field is explicitly set to false then dont make it editable. 
+              deletable: false, // If delete-event-html is set and this field is explicitly set to false then dont make it deleteable 
+              draggable: true, //Allow an event to be dragged and dropped 
+              resizable: true, //Allow an event to be resizable 
+              incrementsBadgeTotal: true, //If set to false then will not count towards the badge total amount on the month and year view 
+              recursOn: 'year', // If set the event will recur on the given period. Valid values are year or month 
+              cssClass: 'a-css-class-name' //A CSS class (or more, just separate with spaces) that will be added to the event when it is displayed on each view. Useful for marking an event as selected / active etc 
+            }
+          );
+          count++;
+        }).catch(function(err){
+            console.log(err);
+        });
+      }
+    }
+  });
+	
 
 	$scope.isCellOpen = true;
 

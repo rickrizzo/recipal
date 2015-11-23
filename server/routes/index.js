@@ -3,6 +3,7 @@ var express = require('express'),
     passport = require('passport');
     Account = require('../models/account.js');
     Recipe = require('../models/recipe');
+//var cookieParser = require('cookie-parser');
 
 router.get('/', function (req, res) {
     res.sendFile('index.html', {root : './'});
@@ -20,15 +21,20 @@ router.post('/register', function(req, res) {
 });
 
 router.get('/preferences', function(req, res){
-  console.log(req.params.username);
-  Account.findOne({username: req.params.username},function(err, username){
-    console.log(username);
-    res.send(username);
-  });
+  //console.log(req.cookies);
+  
 });
 
 router.post('/preferences', function(req, res){
   
+});
+
+router.get('/calendar', function(req, res){
+  Account.findOne({username: req.cookies.username},function(err, username){
+    console.log(username.schedule);
+    res.send(username.schedule);
+    
+  });
 });
 
 
