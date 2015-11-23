@@ -42,7 +42,11 @@ newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $h
 	}
 
 	$scope.addInstruction = function() {
-		$scope.instructions.push($scope.instCount);
+		console.log($scope.instructions);
+		if($scope.instructions == undefined){
+			$scope.instructions = [];
+		}
+		$scope.instructions.push('');
 	}
 	$scope.removeInstruction = function(id) {
 		$scope.instructions.splice(id, 1);
