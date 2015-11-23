@@ -14,7 +14,8 @@ var LocalStrategy = require('passport-local').Strategy;
 /*var routes = require('./server/routes/index');*/
 
 
-var uri = 'mongodb://localhost:27017/recipals';
+var uri='mongodb://recipal:root@ds057214.mongolab.com:57214/recipal'
+//var uri = 'mongodb://localhost:27017/recipals';
 var db = require('mongoose').connect(uri);
 /*var db;
 mongoConnect.connect().then(function() {
