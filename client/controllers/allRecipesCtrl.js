@@ -1,5 +1,3 @@
-//make this file pull from database and display recipes and crap
-
 var allRecipesApp = angular.module("recipal.allRecipesCtrl", []);
 
 allRecipesApp.controller('allRecipesCtrl', ['$scope', '$http', function($scope, $http){
