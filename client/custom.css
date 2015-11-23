@@ -348,3 +348,10 @@ textarea {
   float: right;
   width: 50%;
 }
+
+
+/*Preference Page*/
+
+.preferencePage{
+  margin-top: 120px;
+}

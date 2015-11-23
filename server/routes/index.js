@@ -21,6 +21,9 @@ router.post('/register', function(req, res) {
 });
 
 router.get('/preferences', function(req, res){
+  Account.findOne({username: req.cookies.username}, 'preferences', function(err, preferences){
+    res.send(preferences);
+  })
   //console.log(req.cookies);
   
 });

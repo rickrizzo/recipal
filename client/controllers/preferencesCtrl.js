@@ -1,7 +1,7 @@
 var preferencesApp = angular.module("recipal.preferencesCtrl", []);
 preferencesApp.controller('preferencesCtrl',['$scope', '$http', function($scope, $http){
 
-	$scope.preferences;
+	$scope.preferences= [];
 
 	$http.get('/preferences').then(function(data){
 		$scope.preferences = data.data.preferences;
@@ -9,12 +9,12 @@ preferencesApp.controller('preferencesCtrl',['$scope', '$http', function($scope,
 		console.log(err);
 	});
 
-	$scope.createPreference = function() {
-		var dataObject = $scope.preferenceName;
-		var res = $http.post('/preferences', dataObject);
+	$scope.addPreference = function() {
+		$scope.preferences.push($scope.preferenceName);
+		var res = $http.post('/preferences', $scope.preferenceName);
 		res.success(function(data, status, headers, config) {
+			$scope.preferenceName = '';
 			$scope.message = data;
-			alert("SUBMITTED!");
 		});
 		res.error(function(data, status, headers, config) {
 			alert("failure message: " + JSON.stringify({data: data}));

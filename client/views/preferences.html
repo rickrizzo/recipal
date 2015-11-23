@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html>
-	<body>
-		<div ng-controller="preferencesCtrl">
-			<h1>Add Preferences Page</h1>
-			<h2>Add Preferences Page</h2>
-			<ul>
-				<li ng-repeat="preference in preferences">
-					{{preference}}
-				</li>
-			</ul>
-			<form ng-submit="createPreference()">
-				<input type="text" placeholder="Preference Name" ng-model="preferenceName"></input>
-				<button type="submit">Add Preference</button>
-			</form>
-		</div>
 
-	</body>
-</html>
+<div class="preferencePage" ng-controller="preferencesCtrl">
+	<h1>Add Preferences Page</h1>
+	<input type="text" placeholder="Preference Name" ng-model="preferenceName"></input>
+	<button type="submit" ng-click="addPreference()">Add Preference</button>
+	<ul>
+		<li ng-repeat="preference in preferences">
+			{{preference}}
+		</li>
+	</ul>
+</div>
