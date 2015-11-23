@@ -1,22 +1,31 @@
 <div class="container" ng-controller="loginController">
   <div class="userForm">
+
+    <!--Header-->
     <div class="row center">
       <img src="client/images/recipal-logo.png">
       <h1>Login</h1>
     </div>
     
+    <!--Login Form-->
     <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
     <form id="login" class="form" ng-submit="login()">
       <div class="row">
+        
+        <!--Username-->
         <div class="col-sm-6">
           <label>Username</label>
           <input type="text" name="username" ng-model="loginForm.username" required>
         </div>
+
+        <!--Password-->
         <div class="col-sm-6">
           <label>Password</label>
           <input type="password" name="password" ng-model="loginForm.password" required>
         </div>
+      
       </div>
+      <!--Submission-->
       <div id="submit" class="row center">
         <button type="submit" class="btn" ng-disabled="disabled">Login</button>
       </div>
