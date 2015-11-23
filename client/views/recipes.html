@@ -1,9 +1,13 @@
 <div style="margin-top: 100px" class="container" ng-app="recipal.allRecipesCtrl" ng-ctrl="allRecipesCtrl">
+	
+	<!--Add New Recipe-->
 	<div id="addRecipe" class="row">
 		<div class="col-md-12 center">
 			<a href="#/newRecipe/" class="btn btn-primary btn-lg">Add Recipe</a>
 		</div>
 	</div>
+
+	<!--Recipe Tile-->
 	<div class="row">
 		<a href="#/recipes/{{recipe.name}}" class="hvr-glow tile col col-md-4 col-sm-6" ng-repeat="recipe in recipes">
 			<img class='tile-image' ng-src="{{recipe.image}}">
@@ -12,6 +16,8 @@
 			</div>
 		</a>
 	</div>
+
+	<!--Pagination-->
 	<div class="row text-center">
 		<uib-pagination total-items="totalItems" items-per-page="itemsPage" ng-model="currentPage" max-size="maxSize" class="pagination-sm" rotate="false"></uib-pagination>
 	</div>
