@@ -2,16 +2,11 @@ var express = require('express'),
     router = express.Router(),
     passport = require('passport');
     Account = require('../models/account.js');
+    Recipe = require('../models/recipe');
 
 router.get('/', function (req, res) {
-    //res.render('index', { user : req.user });
     res.sendFile('index.html', {root : './'});
 });
-
-/*
-router.get('/register', function(req, res) {
-    res.render('register', {});
-});*/
 
 router.post('/register', function(req, res) {
   Account.register(new Account({ username: req.body.username }), req.body.password, function(err, account) {
@@ -23,14 +18,6 @@ router.post('/register', function(req, res) {
     });
   });
 });
-/*
-router.get('/login', function(req, res) {
-    res.render('login', { user : req.user });
-});*/
-/*
-router.post('/login', passport.authenticate('local'), function(req, res) {
-    res.redirect('/');
-});*/
 
 
 router.post('/login', function(req, res, next) {
@@ -51,6 +38,19 @@ router.post('/login', function(req, res, next) {
 router.get('/logout', function(req, res) {
   req.logout();
   res.status(200).json({status: 'Bye!'})
+});
+
+router.post('/newRecipe', function(req, res){
+  console.log(req.body);
+  var rec = new Recipe({name: req.body.name, image: req.body.image, description: req.body.description, 
+    cookTime: {hours: req.body.cookHour, min: req.body.cookMin}, prepTime: {hours: req.body.prepHour, min: req.body.prepMin}, recipeIngredients: req.body.ingredients,
+    instructions: req.body.instructions, restrictions: req.body.restrictions});
+  rec.save(function (err, data) {
+      if (err) console.log(err);
+      else console.log('Saved : ', data );
+    });
+
+  res.status(200).json({'Successful' : 'Event edited'})
 });
 
 module.exports = router;

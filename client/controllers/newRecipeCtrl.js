@@ -7,14 +7,25 @@ newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $h
 	$scope.instructions = [];
 
 	$scope.submitRecipe = function() {
-		console.log($scope.count);
-		$http({
-			method: 'POST',
-			url: '/newRecipe'
-		}).then(function success(response) {
+		var dataObj = {
+				name: $scope.name,
+				image: $scope.image,
+				cookHour: $scope.cHour,
+				cookMin: $scope.cMin,
+				prepHour: $scope.pHour,
+				prepMin: $scope.pMin,
+				difficulty: $scope.difficulty,
+				description: $scope.description,
+				ingredients: $scope.ingredients,
+				instruction: $scope.instructions,
+		};
+		var res = $http.post('/newRecipe', dataObj);
+		res.success(function(data, status, headers, config) {
+			$scope.message = data;
 			alert("SUBMITTED!");
-		}, function error(response) {
-			alert("Error submitting");
+		});
+		res.error(function(data, status, headers, config) {
+			alert( "failure message: " + JSON.stringify({data: data}));
 		});
 	}
 
