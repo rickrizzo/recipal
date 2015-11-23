@@ -11,17 +11,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-/*var routes = require('./server/routes/index');*/
-
 //Mongo Database
 var uri='mongodb://recipal:root@ds057214.mongolab.com:57214/recipal';
 var db = require('mongoose').connect(uri);
-//var uri = 'mongodb://localhost:27017/recipals';
-/*var db;
-mongoConnect.connect().then(function() {
-    //maybe some additional logic if need by when mongo connects
-    db = mongoConnect.db;
-});*/
 
 //Express Setup
 var express = require('express'),
@@ -67,22 +59,9 @@ app.use('/newRecipes', recipes);
 
 //Passport Configuration
 var Account = require('./server/models/account.js');
-/*passport.use(new LocalStrategy(
-  function(username, password, done) {
-    Account.findOne({ username: username }, function (err, user) {
-        console.log(user);
-      if (err) { return done(err); }
-      if (!user) { return done(null, false); }
-      if (user.password != password) { return done(null, false); }
-      return done(null, user);
-    });
-  }
-));*/
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
-
-//mongoose.connect('mongodb://localhost:27017/Recipals');
 
 // catch 404 and forward to error handler
 /*app.use(function (req, res, next) {

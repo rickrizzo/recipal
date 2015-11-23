@@ -1,9 +1,10 @@
+//Connect to Mongo
 var mongo = require('mongodb');
 var MongoClient = mongo.MongoClient;
 var bb = require("bluebird");
 
+//Mongo URL
 var url = 'mongodb://localhost:27017/recipals';
-
 var exports = module.exports;
 
 bb.promisifyAll(MongoClient, {suffix:"A"});
