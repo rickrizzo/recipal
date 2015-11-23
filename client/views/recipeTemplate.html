@@ -1,33 +1,61 @@
 <div style="margin-top: 100px" class="container" ng-app="recipal.recipeCtrl" ng-ctrl="recipeCtrl">
-	<div class="recipe-container">
-		<div class="">
-			
-		</div>
-		<div class="card effect__click" ng-class="{'flipped':isFlipped}" ng-click="flipCard()">
-
-			<div class="front">
-				<h1>{{recipe.name}}</h1>
-				<img width="100%" ng-src="{{recipe.image}}">
-			</div>
-			<div class="back">
-				<h1 style="text-align:center">{{recipe.name}}</h1>
-				<div class="timing">
-					Prep Time: {{recipe.prepTime.hours}} hours and {{recipe.prepTime.min}} minutes, 
-					Cook Time: {{recipe.cookTime.hours}} hours and {{recipe.cookTime.min}} minutes
-				</div>
-				<div class="ingredients">
-					<h4>Ingredients:</h4>
-					<ul>
-						<li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient}}</li>
-					</ul>
-				</div>
-				<div class="directions">
-					<h4>Directions:</h4>
-					<ol>
-						<li ng-repeat="direction in recipe.instructions">{{direction}}</li>
-					</ol>
-				</div>
-			</div>
-		</div>
-	</div>
+  <!--<div class="recipe-container">
+    <div class="card effect__click" ng-class="{'flipped':isFlipped}" ng-click="flipCard()">
+      <div class="front">
+        <h1>{{recipe.name}}</h1>
+        <img width="100%" ng-src="{{recipe.image}}">
+      </div>
+      <div class="back">
+        <h1 style="text-align:center">{{recipe.name}}</h1>
+        <div class="timing">
+          Prep Time: {{recipe.prepTime.hours}} hours and {{recipe.prepTime.min}} minutes, 
+          Cook Time: {{recipe.cookTime.hours}} hours and {{recipe.cookTime.min}} minutes
+        </div>
+        <div class="ingredients">
+          <h4>Ingredients:</h4>
+          <ul>
+            <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient}}</li>
+          </ul>
+        </div>
+        <div class="directions">
+          <h4>Directions:</h4>
+          <ol>
+            <li ng-repeat="direction in recipe.instructions">{{direction}}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  <div id="recipe" class="container">
+    <div class="row">
+      <img ng-src="{{recipe.image}}">
+    </div>
+    <!--Column 1-->
+    <div class="row">
+      <h1>{{recipe.name}}</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6">Prep Time: {{recipe.prepTime.hours}} hours and {{recipe.prepTime.min}} mins</div>
+      <div class="col-md-4 col-sm-6">Cook Time: {{recipe.cookTime.hours}} hours and {{recipe.cookTime.min}} mins</div>
+      <div class="col-md-4 col-sm-6">Difficulty: </div>
+      <hr>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h4>Ingredients:</h4>
+        <hr>
+        <ul>
+          <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient}}</li>
+        </ul>
+      </div>
+      <div class="col-sm-6">
+        <h4>Directions:</h4>
+        <hr>
+        <ol>
+          <li ng-repeat="direction in recipe.instructions">{{direction}}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
 </div>
