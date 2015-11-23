@@ -4,64 +4,101 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
+  <link rel="icon" type="image/png" href="client/images/recipal-logo.png">
+  <!--<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">-->
   <!--CSS-->
   <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="client/custom.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href="node_modules/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.css" rel="stylesheet">
     
   <!--Title-->
   <title>Recipals</title>
 </head>
-<body id="page-top" class="index" ng-app="myApp" >
-
-  <!--Navigation-->
-  <div class="navbar-wrapper">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container" width="100%">
-        <div class="navbar-header page-scroll">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="pull-left" href="#/"><img class="top-nav-logo" height="60" src="client/images/recipal.png" alt=""></a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar">
-          <ul class="nav navbar-nav navbar-right" >
-            <li class="hidden"><a href="#page-top"></a></li>
-            <li><a href="#/">Home</a></li>
-            <li><a href="#/recipes">Recipes</a></li>
-            <li><a href="#/about">About</a></li>
-            <li><a href="#/about">Login</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
+<body id="page-top" class="index" ng-app="myApp" ng-controller="indexCtrl" >
+    <div class="navbar-wrapper">
+      <nav class="navbar navbar-inverse navbar-fixed-top" ng-class="navClass">
+          <div class="container" width="100%">
+              <div class="navbar-header page-scroll">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-left" href="#/"><img class="top-nav-logo" height="60" src="client/images/recipal-text-inverse.png" alt=""></a>
+              </div>
+              <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right" >
+                  <li class="hidden"><a href="#page-top"></a></li>
+                  <li ng-class="{ active: isActive('/')}">
+                    <a href="#/">Home</a>
+                  </li>
+                  <li ng-class="{ active: isActive('/recipes')}">
+                    <a href="#/recipes">Recipes</a>
+                  </li>
+                  <li ng-class="{ active: isActive('/calendar')}">
+                    <a ng-show="isLoggedIn()" href="#/calendar">Schedule</a>
+                  </li>
+                  <li ng-class="{ active: isActive('/login')}">
+                    <a ng-show="!isLoggedIn()" href="#/login">Login</a>
+                  </li>
+                  <li class="dropdown">
+                    <a ng-show="isLoggedIn()" href="#/{{user}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      <span class="glyphicon glyphicon-user"></span> {{user}} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li ng-class="{ active: isActive('/preferences')}"><a href="#/">Preferences</a></li>
+                      <li ng-class="{ active: isActive('/saved')}"><a href="#/">Saved Recipes</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#/" ng-click="logout()">Log Out</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+          </div>
+      </nav>
+    </div>
 
 <!--Views-->
-<div id="content" ng-view autoscroll="true"></div>
-
-<!--Footer-->
-<footer class="text-center"></footer>
-<div class="scroll-top page-scroll visible-xs visble-sm">
-  <a class="btn btn-primary" href="#page-top">
-    <i class="fa fa-chevron-up"></i>
-  </a>
-</div>
+<div id="content" ng-view class="view" autoscroll="true"></div>
     
   <!--Scripts-->
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="node_modules/angular/angular.js"></script>
   <script src="node_modules/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
+  <script src="node_modules/angular-cookies/angular-cookies.min.js"></script>
   <script src="node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="node_modules/moment/moment.js"></script>
+  <script src="node_modules/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
+  <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+  <script src="app.js"></script>
   <script src="client/controllers/homeCtrl.js"></script>
   <script src="client/controllers/allRecipesCtrl.js"></script>
   <script src="client/controllers/recipeCtrl.js"></script>
   <script src="client/controllers/newRecipeCtrl.js"></script>
+  <script src="client/controllers/loginCtrl.js"></script>
+  <script src="client/controllers/logoutCtrl.js"></script>
+  <script src="client/controllers/registerCtrl.js"></script>
+  <script src="client/services.js"></script>
+  <script src="client/controllers/calendarCtrl.js"></script>
+
 </body>
 </html>

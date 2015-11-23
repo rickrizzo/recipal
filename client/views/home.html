@@ -1,13 +1,13 @@
-<div ng-app="recipal.homeCtrl" ng-controller="homeCtrl">
+<div ng-app="recipal.homeCtrl" class="home-page" ng-controller="homeCtrl">
   <div class="home-wrapper">
     <div class="site-wrapper-inner">
       <div class="cover-container">
         <div class="cover-info">
-          <h1 class="cover-heading">ReciPal</h1>
+          <h1 class="cover-heading"><img src="client/images/recipal-text-inverse.png"></h1>
             <p class="lead">Simplify your food. Simplify your life.</p>
-            <p class="lead">
-              <a class="btn btn-lg btn-default" ng-click="loginModal()">Sign In</a>
-              <a class="btn btn-lg btn-default">Sign Up</a>
+            <p ng-hide="isLoggedIn()" class="lead">
+              <a class="btn btn-lg btn-default" href="#/login">Sign In</a>
+              <a class="btn btn-lg btn-default" href="#/register">Sign Up</a>
             </p>
             <p class="lead">
               <a class="btn btn-lg btn-default">I'm Hungry</a>
@@ -18,75 +18,80 @@
   	<!--<div class="container cover-container">
 
   	</div>-->
+  <!--<div ng-controller="logoutController">
+    <a ng-click='logout()' class="btn btn-default">Logout</a>
+  </div>-->
   </div>
-  	<div class="container cover-container">
-  		<h1>ReciPal</h1>
-  	</div>
-  <div>
-  	<div class="container marketing">
+	<div class="container-fluid marketing">
 
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-          <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+      <!-- Three columns of text below the carousel -->
+      <div class="container-fluid" id="home-section2">
+        <div class="container" >
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Peronalized</h2>
+          <p>Think of Recipal as a personal chef in your pocket. We browse a huge databaes of recipes and recommend only the best for you based upon your preferences and recipe history. Best of all, the more you use Recipal, the better it gets.</p>
+          <p><a class="btn btn-default" href="#/" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Optimal</h2>
+          <p>Unlike most applications, Recipal thinks about more than what tastes good. We take into account your dietary restrictions, what you've eaten already, what's in season, and more.</p>
+          <p><a class="btn btn-default" href="#/" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Fun</h2>
+          <p>Cooking shouldn't be a chore. Takes the guess work and time crunch out of making delicious home-cooked meals. We adjust our recomendations based upon your calendar to try to make things as easy for you as possible.</p>
+          <p><a class="btn btn-default" href="#/" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        </div>
+      </div><!-- /.row -->
 
 
-        <!-- START THE FEATURETTES -->
+      <!-- START THE FEATURETTES -->
 
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
+      <!--<hr class="featurette-divider">-->
+      <div class="container-fluid" id="home-section3">
+        <div class="container featurette">
           <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <h2 class="featurette-heading">"It saved my Wednesday nights!" <span class="text-muted">It'll blow your mind.</span></h2>
+            <p class="lead">Soccer practice, dance class, student government, work, yoga</p>
           </div>
           <div class="col-md-5">
             <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
           </div>
         </div>
+      </div>
 
-        <hr class="featurette-divider">
+      <!--<hr class="featurette-divider">-->
 
-        <div class="row featurette">
-          <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5 col-md-pull-7">
-            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
+      <div class="container-fluid" id="home-section4">
+      <div class="container featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Download our application now and start using it! It's a free download you won't regret.</p>
         </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
+      </div>
+      </div>
 
-        <hr class="featurette-divider">
+      <!--<hr class="featurette-divider">-->
+
+      <div class="container-fluid" id="home-section5">
+      <div class="container featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Recipal is working for you! Our mission is to make cooking fun and easy.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
     </div>
+
+      <!--<hr class="featurette-divider">-->
   </div>
 </div>
