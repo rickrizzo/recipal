@@ -36,7 +36,6 @@ app.config(['$routeProvider', function($routeProvider){
     });
 }]);
 
-
 app.controller('indexCtrl', ['$scope', 'AuthService', '$cookies', '$location','$window', function($scope, AuthService, $cookies, $location, $window){
     $scope.user = $cookies.get('username');
     $scope.isLoggedIn = function(){
