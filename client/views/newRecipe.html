@@ -88,10 +88,10 @@
       <div class="row">
         <!--Ingredients-->
         <section class="col-sm-6">
-          <input class="btn" ng-click="addIngredient()" type="button" value="Add Ingredient">
+          <input class="btn" ng-click="addIngredient()" formnovalidate type="button" value="Add Ingredient">
           <ul>
-            <li ng-repeat="n in ingredients track by $index">
-              <input type="text" id="ingr{{n}}">
+            <li ng-repeat="ingredient in ingredients track by $index">
+              <input type="text" ng-model="ingredients[$index]">
               <span ng-click="removeIngredient($index)" class="glyphicon glyphicon-remove"></span>
             </li>
           </ul>
@@ -101,8 +101,8 @@
         <section class="col-sm-6">
           <input class="btn" ng-click="addInstruction()" type="button" value="Add Instruction">
           <ol>
-            <li ng-repeat="n in instructions track by $index">
-              <input type="text" id="inst{{n}}">
+            <li ng-repeat="instruction in instructions track by $index">
+              <input type="text" ng-model="ingredients[$index]">
               <span ng-click="removeInstruction($index)" class="glyphicon glyphicon-remove"></span>
             </li>
           </ol>

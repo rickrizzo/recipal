@@ -3,6 +3,7 @@ var express = require('express'),
     passport = require('passport');
     Account = require('../models/account.js');
     Recipe = require('../models/recipe');
+//var cookieParser = require('cookie-parser');
 
 router.get('/', function (req, res) {
     res.sendFile('index.html', {root : './'});
@@ -16,6 +17,33 @@ router.post('/register', function(req, res) {
     passport.authenticate('local')(req, res, function () {
       return res.status(200).json({status: 'Registration successful!'})
     });
+  });
+});
+
+router.get('/preferences', function(req, res){
+  Account.findOne({username: req.cookies.username}, 'preferences', function(err, preferences){
+    res.send(preferences);
+  })
+  //console.log(req.cookies);
+});
+
+router.post('/preferences', function(req, res){
+  Account.findOne({username: req.cookies.username}, 'preferences', function(err, preferences){
+    console.log(preferences);
+    preferences.preferences.push(req.body.preferenceName);
+    Account.update({username: req.cookies.username},{'preferences': preferences.preferences}, function(err, doc){
+      if(err) return res.status(500).json({err:err});
+      res.status(200).json({status: 'Login successful!'});
+    });
+    
+  });
+});
+
+router.get('/calendar', function(req, res){
+  Account.findOne({username: req.cookies.username},function(err, username){
+    console.log(username.schedule);
+    res.send(username.schedule);
+    
   });
 });
 

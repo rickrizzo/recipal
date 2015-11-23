@@ -30,7 +30,10 @@ newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $h
 	}
 
 	$scope.addIngredient = function() {
-		$scope.ingredients.push($scope.ingrCount);
+		if($scope.ingredients == undefined){
+			$scope.ingredients = [];
+		}
+		$scope.ingredients.push('');
 	}
 	$scope.removeIngredient = function(id) {
 		$scope.ingredients.splice(id, 1);
