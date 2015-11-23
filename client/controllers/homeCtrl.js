@@ -1,6 +1,6 @@
 var homeApp = angular.module('recipal.homeCtrl', ['ui.bootstrap']);
 
-homeApp.controller('homeCtrl', ['$scope', '$modal', function($scope, $modal){
+homeApp.controller('homeCtrl', ['$scope', '$modal', '$location','$http', function($scope, $modal, $location, $http){
 
 
     $scope.isLoggedIn = $scope.$parent.$parent.isLoggedIn;
@@ -21,6 +21,15 @@ homeApp.controller('homeCtrl', ['$scope', '$modal', function($scope, $modal){
 
     $scope.cancel = function () {
         $scope.modalInstance.dismiss('cancel');
+    };
+
+    $scope.random = function(){
+      $http.get('/random').then(function(data){
+        console.log(data.data);
+        $location.path('/recipes/' + data.data);
+      }).catch(function(err){
+        console.log(err);
+      });
     };
 
 

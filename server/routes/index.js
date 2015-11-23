@@ -81,4 +81,13 @@ router.post('/newRecipe', function(req, res){
   res.status(200).json({'Successful' : 'Event edited'})
 });
 
+router.get('/random', function(req, res){
+  Recipe.count(function(err, count){
+    Recipe.find(function(err, recipes){
+      res.send(recipes[Math.floor((Math.random() * count))].name);
+    });
+  });
+});
+
+
 module.exports = router;
