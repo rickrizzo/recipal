@@ -1,23 +1,48 @@
 var newRecipeApp = angular.module('recipal.newRecipeCtrl', []);
 
 newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $http) {
-	$scope.count = 0;
+	
+	//Variables
+	$scope.ingredients = [];	
+	$scope.instructions = [];
 
 	$scope.submitRecipe = function() {
-		$http({
-			method: 'POST',
-			url: '/newRecipe'
-		}).then(function success(response) {
-			alert("SUBMITTED!");
-		}, function error(response) {
+		var dataObj = {
+				name: $scope.name,
+				image: $scope.image,
+				cookHour: $scope.cHour,
+				cookMin: $scope.cMin,
+				prepHour: $scope.pHour,
+				prepMin: $scope.pMin,
+				difficulty: $scope.difficulty,
+				description: $scope.description,
+				ingredients: $scope.ingredients,
+				instruction: $scope.instructions,
+		};
+		var res = $http.post('/newRecipe', dataObj);
+		res.success(function(data, status, headers, config) {
+			$scope.message = data;
 			alert("SUBMITTED!");
 		});
+		res.error(function(data, status, headers, config) {
+			alert( "failure message: " + JSON.stringify({data: data}));
+		});
 	}
-}])
 
-newRecipeApp.directive("testDir", function() {
-	return {
-		restrict: "E",
-		template: "<button addbuttons>Click to add buttons</button>"
+	$scope.addIngredient = function() {
+		if($scope.ingredients == undefined){
+			$scope.ingredients = [];
+		}
+		$scope.ingredients.push('');
 	}
-});
+	$scope.removeIngredient = function(id) {
+		$scope.ingredients.splice(id, 1);
+	}
+
+	$scope.addInstruction = function() {
+		$scope.instructions.push($scope.instCount);
+	}
+	$scope.removeInstruction = function(id) {
+		$scope.instructions.splice(id, 1);
+	}
+}]);
