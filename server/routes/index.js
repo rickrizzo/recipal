@@ -3,30 +3,41 @@ var express = require('express'),
     passport = require('passport');
     Account = require('../models/account.js');
     Recipe = require('../models/recipe');
-//var cookieParser = require('cookie-parser');
 
+//send the index.html page
 router.get('/', function (req, res) {
     res.sendFile('index.html', {root : './'});
 });
 
+
+//register a user
 router.post('/register', function(req, res) {
-  Account.register(new Account({ username: req.body.username }), req.body.password, function(err, account) {
-    if (err) {
-      return res.status(500).json({err: err})
-    }
-    passport.authenticate('local')(req, res, function () {
-      return res.status(200).json({status: 'Registration successful!'})
+  var sched;
+  Recipe.count(function(err, count){
+    Recipe.find(function(err, recipes){
+      var sched = {0: recipes[Math.floor((Math.random() * count))].name, 1: recipes[Math.floor((Math.random() * count))].name, 2 : recipes[Math.floor((Math.random() * count))].name, 3: recipes[Math.floor((Math.random() * count))].name, 4: recipes[Math.floor((Math.random() * count))].name, 5: recipes[Math.floor((Math.random() * count))].name, 6: recipes[Math.floor((Math.random() * count))].name};
+      //res.send(recipes[Math.floor((Math.random() * count))].name);
+      Account.register(new Account({ username: req.body.username, schedule: sched }), req.body.password, function(err, account) {
+      if (err) {
+        return res.status(500).json({err: err})
+      }
+      passport.authenticate('local')(req, res, function () {
+        return res.status(200).json({status: 'Registration successful!'})
+      });
+    });
     });
   });
+
 });
 
+//retrieve preferences for a user
 router.get('/preferences', function(req, res){
   Account.findOne({username: req.cookies.username}, 'preferences', function(err, preferences){
     res.send(preferences);
   })
-  //console.log(req.cookies);
 });
 
+//add a preference to specified user
 router.post('/preferences', function(req, res){
   Account.findOne({username: req.cookies.username}, 'preferences', function(err, preferences){
     console.log(preferences);
@@ -39,15 +50,15 @@ router.post('/preferences', function(req, res){
   });
 });
 
+//retrieve calendar for an individual user
 router.get('/calendar', function(req, res){
   Account.findOne({username: req.cookies.username},function(err, username){
     console.log(username.schedule);
     res.send(username.schedule);
-    
   });
 });
 
-
+//check whether logging in user is authorized
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { return next(err) }
@@ -63,11 +74,13 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
+//logout the current user
 router.get('/logout', function(req, res) {
   req.logout();
   res.status(200).json({status: 'Bye!'})
 });
 
+//add a new recipe to the database
 router.post('/newRecipe', function(req, res){
   console.log(req.body);
   var rec = new Recipe({name: req.body.name, image: req.body.image, description: req.body.description, 
@@ -81,6 +94,7 @@ router.post('/newRecipe', function(req, res){
   res.status(200).json({'Successful' : 'Event edited'})
 });
 
+//retrieve a random recipe
 router.get('/random', function(req, res){
   Recipe.count(function(err, count){
     Recipe.find(function(err, recipes){

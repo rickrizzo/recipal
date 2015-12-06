@@ -1,8 +1,11 @@
 var calendarApp = angular.module("recipal.calendarCtrl", ['mwl.calendar', 'ui.bootstrap']);
 
+//controller for the calendar page
 calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', '$http', function($scope, $uibModal, $http){
 	$scope.calendarView = 'week';
 	$scope.calendarDay = new Date();
+
+  //array to hold names of the week
 	$scope.weekday = new Array(7);
 	$scope.weekday[0]=  "Sunday";
 	$scope.weekday[1] = "Monday";
@@ -14,12 +17,14 @@ calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', '$http', function
 	$scope.recipes = {};
   var holder = [];
   var count = 0;
+
+  //get request for recipes in the calender
   $http.get('/calendar').then(function(data){
     console.log(data.data);
-    for(recipeName in data.data){
+    for(recipeName in data.data){//iterate through individual calendar to grab all data for each recipe
       holder.push(recipeName);
       if(data.data[recipeName] != undefined){
-        $http.get('/recipes/' + data.data[recipeName]).then(function(data){
+        $http.get('/recipes/' + data.data[recipeName]).then(function(data){//server request for recipe data
           console.log(holder[count]);
           $scope.recipes[holder[count]] = data.data;
           $scope.events.push(
@@ -65,7 +70,7 @@ calendarApp.controller('calendarCtrl', ['$scope', '$uibModal', '$http', function
         endsAt: moment(start).add(2, 'hours').toDate()
       })
     }*/
-
+    //function for showing modal and passing scope
     function showModal(action, event) {
       console.log($scope.recipes);
       $uibModal.open({

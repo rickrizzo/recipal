@@ -2,11 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
+//fields for each Account object
 var Account = new Schema({
     username: String,
     password: String,
-    //these are supposed to be arrays of strings
-    //idk if this is the right syntax for that
     preferences: [String],
     restrictions: [String],
     schedule : {
@@ -23,7 +22,7 @@ var Account = new Schema({
 );
 
 
-
+//function to register user
 Account.register = function(Account){
 	Account.save(function (err) {if (err) console.log('Error on save')});
 }

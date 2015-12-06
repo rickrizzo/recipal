@@ -6,6 +6,7 @@ newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $h
 	$scope.ingredients = [];	
 	$scope.instructions = [];
 
+	//function when submit button is pressed, passes data form to server
 	$scope.submitRecipe = function() {
 		var dataObj = {
 				name: $scope.name,
@@ -31,16 +32,19 @@ newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $h
 		});
 	}
 
+	//adds a field for when add ingredients is clicked
 	$scope.addIngredient = function() {
 		if($scope.ingredients == undefined){
 			$scope.ingredients = [];
 		}
 		$scope.ingredients.push('');
 	}
+	//removes ingredient field
 	$scope.removeIngredient = function(id) {
 		$scope.ingredients.splice(id, 1);
-	}
+	}	
 
+	//adds and instruction field
 	$scope.addInstruction = function() {
 		console.log($scope.instructions);
 		if($scope.instructions == undefined){
@@ -48,6 +52,8 @@ newRecipeApp.controller('newRecipeCtrl', ['$scope', '$http', function($scope, $h
 		}
 		$scope.instructions.push('');
 	}
+
+	//removes an instruction field
 	$scope.removeInstruction = function(id) {
 		$scope.instructions.splice(id, 1);
 	}

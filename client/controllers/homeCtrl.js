@@ -1,10 +1,12 @@
 var homeApp = angular.module('recipal.homeCtrl', ['ui.bootstrap']);
 
+//controller for home page
 homeApp.controller('homeCtrl', ['$scope', '$modal', '$location','$http', function($scope, $modal, $location, $http){
 
 
     $scope.isLoggedIn = $scope.$parent.$parent.isLoggedIn;
 
+    //open up modal to login
     $scope.loginModal = function () {
         $scope.alerts = [];
         $scope.modalInstance = $modal.open({
@@ -19,10 +21,12 @@ homeApp.controller('homeCtrl', ['$scope', '$modal', '$location','$http', functio
         });
     };
 
+    //exit out modal
     $scope.cancel = function () {
         $scope.modalInstance.dismiss('cancel');
     };
 
+    //retrieves random recipe from server
     $scope.random = function(){
       $http.get('/random').then(function(data){
         console.log(data.data);

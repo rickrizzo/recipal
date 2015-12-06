@@ -1,3 +1,5 @@
+
+<!-- header -->
 <div class="modal-header">
 		<div class="col">
 			<a ng-click="$close()"><span class="pull-right glyphicon glyphicon-remove" ></span></a>
@@ -7,20 +9,29 @@
 		</div>
 
 </div>
+
+<!-- Modal Body -->
+
 <div class="modal-body">
 	<p>
-		<h1>{{recipe.name}}</h1>
-		<img width="100%" ng-src="{{recipe.image}}">
+		<h1>{{recipe.name}}</h1> <!-- Name -->
+		<img width="100%" ng-src="{{recipe.image}}"> <!-- Image -->
+
+		<!--Timing for recipe-->
 		<div class="timing">
 			Prep Time: {{recipe.prepTime.hours}} hours and {{recipe.prepTime.min}} minutes, 
 			Cook Time: {{recipe.cookTime.hours}} hours and {{recipe.cookTime.min}} minutes
 		</div>
+
+		<!--recipe ingredients-->
 		<div class="ingredients">
 			<h4>Ingredients:</h4>
 			<ul>
 				<li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient}}</li>
 			</ul>
 		</div>
+
+		<!--recipe directions-->
 		<div class="directions">
 			<h4>Directions:</h4>
 			<ol>
@@ -29,6 +40,9 @@
 		</div>
 	</p>
 </div>
+
+<!-- Modal footer -->
+
 <div class="modal-footer">
 	<button class="btn btn-primary" ng-click="$close()">OK</button>
 </div>

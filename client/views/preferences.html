@@ -1,7 +1,11 @@
 <div class="preferencePage" ng-controller="preferencesCtrl">
 	<h1>Add Preferences Page</h1>
+	<!-- Input Field -->
 	<input type="text" placeholder="Preference Name" ng-model="preferenceName"></input>
+	<!-- Submit Button -->
 	<button type="submit" ng-click="addPreference()">Add Preference</button>
+
+	<!-- List of all Buttons -->
 	<ul>
 		<li ng-repeat="preference in preferences">
 			{{preference}}

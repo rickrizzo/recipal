@@ -1,7 +1,7 @@
 angular.module('recipals').controller('registerController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
-
+    //register function
     $scope.register = function () {
       if($scope.registerForm.password != $scope.registerForm.password2){
         $scope.error = true;

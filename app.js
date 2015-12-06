@@ -1,7 +1,7 @@
 var app = angular.module('recipals',['ngRoute', 'ngCookies', 'ui.bootstrap','mwl.calendar', 'ngAnimate', 'recipal.homeCtrl',
  'recipal.allRecipesCtrl', 'recipal.recipeCtrl', 'recipal.newRecipeCtrl', 'recipal.calendarCtrl', 'recipal.preferencesCtrl']);
 
-//Routing
+//Routing for which controller and view goes to what URL 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.
     when('/',{

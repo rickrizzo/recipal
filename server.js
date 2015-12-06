@@ -1,9 +1,10 @@
+//all included libraries
 var path = require('path');
 var routes = require('./server/routes/index');
 var recipes = require('./server/routes/recipes');
 var bodyParser = require('body-parser');
 var connect = require('connect');
-var mongoConnect = require('./server/mongoConnect.js');
+//var mongoConnect = require('./server/mongoConnect.js');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
