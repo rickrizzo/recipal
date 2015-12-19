@@ -14,15 +14,38 @@ html, body, #content{
 	vertical-align: middle;
 	height: 100vh;
 }
-.navbar{
+#navbar{
   -webkit-transition:0.5s linear all;
   -moz-transition:0.5s linear all;
   -o-transition:0.5s linear all;
   transition:0.5s linear all;
 }
+.top-nav-logo{
+  -webkit-transition:0.5s linear all;
+  -moz-transition:0.5s linear all;
+  -o-transition:0.5s linear all;
+  transition:0.5s linear all;
+}
+
+
 .big {
     height:100px;
-    padding-top: 25px;
+}
+
+.big #navbar {
+  padding-top: 25px;
+}
+
+.big .navbar-header{
+  padding-top: 15px;
+}
+
+.big .top-nav-logo{
+  height: 80px;
+}
+
+.small .top-nav-logo{
+  height: 60px;
 }
 
 .small {

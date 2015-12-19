@@ -5,10 +5,16 @@ var express = require('express'),
 
 //Serve Recipes
 router.get('/', function(req, res){
-	Recipe.find({},"name image", function(err, recipes){
+	console.log(req.query);
+	Recipe.find({},"name image",{limit:9, skip:(Number(req.query.pageNumber) - 1) * 9}, function(err, recipes){
 		if(err) return console.error(err);
 		console.log(recipes);
 		res.send(recipes);
+	});
+});
+router.get('/pageCount',function(req, res){
+	Recipe.count({}, function(err, c){
+		res.send({'pageCount': c});
 	});
 });
 

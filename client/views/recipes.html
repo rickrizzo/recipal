@@ -19,6 +19,6 @@
 
 	<!--Pagination-->
 	<div class="row text-center">
-		<uib-pagination total-items="totalItems" items-per-page="itemsPage" ng-model="currentPage" max-size="maxSize" class="pagination-sm" rotate="false"></uib-pagination>
+		<uib-pagination total-items="totalItems" items-per-page="itemsPage" ng-model="currentPage" max-size="maxSize" ng-change="pageChanged()" class="pagination-sm" rotate="false"></uib-pagination>
 	</div>
 </div>
